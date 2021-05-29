@@ -26,3 +26,13 @@ class Doctor(models.Model):
     available = models.IntegerField(max_length=4)
     fees = models.IntegerField(max_length=10)
   
+  
+class Patient(models.Model):
+    email = models.EmailField(max_length=70)
+    userid = models.CharField(max_length=50)    
+    password = models.CharField(max_length=50)    
+
+
+class Admin(models.Model):
+    email = models.EmailField(max_length=70)
+    password = models.CharField(max_length=50)    

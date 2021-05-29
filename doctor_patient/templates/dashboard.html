@@ -2,8 +2,12 @@
 
 {% block content %}
 <div class="container">
+
+    <div class="text-right">
+        <a href="{% url 'aLogout' %}" class="btn btn-outline-primary mt-5">Logout</a>
+    </div>
     
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-3">
         <div class="col-auto">
             <div class="text-right mb-2">
                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#drLogin">+</button>
@@ -37,8 +41,8 @@
                         <td>
                             <!-- View -->
                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                data-target="#drview">View</button>
-                                <div class="modal fade" id="drview" tabindex="-1" role="dialog" aria-labelledby="drForm"
+                                data-target="#drview{{d.id}}">View</button>
+                                <div class="modal fade" id="drview{{d.id}}" tabindex="-1" role="dialog" aria-labelledby="drForm"
                                 aria-hidden="true">
                                 <form action="{% url 'update' d.id %}" method="POST">
                                     {% csrf_token %}
@@ -186,8 +190,8 @@
 
                             <!-- Update -->
                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                data-target="#drupdate">Update</button>
-                            <div class="modal fade" id="drupdate" tabindex="-1" role="dialog" aria-labelledby="drForm"
+                                data-target="#drupdate{{d.id}}">Update</button>
+                            <div class="modal fade" id="drupdate{{d.id}}" tabindex="-1" role="dialog" aria-labelledby="drForm"
                                 aria-hidden="true">
                                 <form action="{% url 'update' d.id %}" method="POST">
                                     {% csrf_token %}
@@ -347,10 +351,10 @@
                             </div>
 
                             <!-- Delete -->
-                            <a href="#deleteModal" class="trigger-btn btn btn-danger btn-sm"
+                            <a href="#deleteModal{{d.id}}" class="trigger-btn btn btn-danger btn-sm"
                                 data-toggle="modal">Delete</a>
                             <!-- Delete Alart -->
-                            <div id="deleteModal" class="modal fade">
+                            <div id="deleteModal{{d.id}}" class="modal fade">
                                 <div class="modal-dialog modal-confirm">
                                     <div class="modal-content">
                                         <div class="modal-header flex-column">
