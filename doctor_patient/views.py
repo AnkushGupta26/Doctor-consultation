@@ -96,3 +96,8 @@ def aLogin(request):
 def aLogout(request):
     del request.session['admin']
     return redirect('index')
+
+@decorator_from_middleware(PatientAuthMiddleware)
+def specialization(request, spec):
+    doctors = Doctor.objects.filter(specialization=spec)
+    return render(request, 'spec.html', {'doctors':doctors})

@@ -15,4 +15,5 @@ urlpatterns = [
     path('admin', views.adminLogin, name='adminLogin'),
     path('aLogin', views.aLogin, name='aLogin'),
     path('aLogout', views.aLogout, name='aLogout'),
+    path('home/<str:spec>', views.specialization, name='spec'),
 ]
