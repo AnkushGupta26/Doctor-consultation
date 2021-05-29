@@ -5,7 +5,7 @@ class Doctor(models.Model):
     # Personal Detail
     name = models.CharField(max_length=70)
     dob = models.CharField(max_length=70)
-    gender = models.CharField(max_length=5)
+    gender = models.CharField(max_length=10)
     email = models.EmailField(max_length=70)
     mobile = models.CharField(max_length=15)
     state = models.CharField(max_length=30)
